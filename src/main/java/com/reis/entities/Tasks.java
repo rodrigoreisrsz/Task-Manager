@@ -1,21 +1,31 @@
 package com.reis.entities;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Tasks {
-    //Atributos
-    private static int contadorId = 1;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private int id;
     private String nome;
     private String descricao;
     private String data;
     private Status status;
 
+    public Tasks() {
+        // construtor vazio — o Hibernate exige, pra ele conseguir instanciar o objeto antes de preencher os campos
+    }
+
     public Tasks(String nome, String descricao, String data) {
         this.nome = nome;
         this.descricao = descricao;
         this.data = data;
         this.status = Status.NAO_INICIADO;
-        this.id = contadorId++;
-
     }
 
     @Override
@@ -42,9 +52,6 @@ public class Tasks {
 
     public int getId(){
         return id;
-    }
-    public static void setContadorId(int contadorId){
-        Tasks.contadorId = contadorId;
     }
     public void setData(String data) {
         this.data = data;
