@@ -4,11 +4,7 @@ import com.reis.entities.Status;
 import com.reis.entities.Tasks;
 import com.reis.repositories.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.config.Task;
 import org.springframework.stereotype.Service;
-
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
