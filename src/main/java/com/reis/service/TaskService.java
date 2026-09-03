@@ -26,13 +26,11 @@ public class TaskService {
 
     }
 
-    public Tasks editarTask(Long id, Tasks taskAtualizada) {
+    public Tasks editarTask(int id, String nome, String descricao, String data) {
         Tasks taskExistente = repository.findById(id).get();
-
-
-        taskExistente.setNome(taskAtualizada.getNome());
-        taskExistente.setDescricao(taskAtualizada.getDescricao());
-        taskExistente.setData(taskAtualizada.getData());
+        taskExistente.setNome(nome);
+        taskExistente.setDescricao(descricao);
+        taskExistente.setData(data);
         return repository.save(taskExistente);
     }
 

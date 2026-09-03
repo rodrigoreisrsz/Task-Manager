@@ -1,6 +1,7 @@
 package com.reis.controllers;
 
 import com.reis.dto.TaskCreateDTO;
+import com.reis.dto.TaskStatusDTO;
 import com.reis.entities.Tasks;
 import com.reis.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,13 +31,17 @@ public class TaskController {
        return service.adicionarTask(taskCreateDTO.getNome(), taskCreateDTO.getDescricao(), taskCreateDTO.getData());
 
     }
-//    @PutMapping("/{id}")
-////    public Tasks editar(@PathVariable Long id, @RequestBody TaskCreateDTO dto){
-//////        TaskCreateDTO taskAtualizada = service.editarTask(id, dto);
-//////        return service.editarTask(taskAtualizada);
-////    }
-//    @DeleteMapping("/{id}")
-////    public Tasks deletar(@RequestBody TaskCreateDTO taskCreateDTO){
-////       // return service.deletarTask(taskCreateDTO);
-////    }
+    @PutMapping("/{id}")
+    public Tasks editar(@PathVariable int id, @RequestBody TaskCreateDTO dto){
+        return service.editarTask(id, dto.getNome(), dto.getDescricao(), dto.getData());
+    }
+    @DeleteMapping("/{id}")
+    public void deletar(@PathVariable int id){
+        service.deletarTask(id);
+    }
+    @PatchMapping("/{id}/status")
+    public Tasks mudarStatus(@PathVariable int id, @RequestBody TaskStatusDTO dto){
+        return service.marcarStatus(id, dto.getStatus());
+
+    }
 }

@@ -1,5 +1,7 @@
 package com.reis.dto;
 
+import com.reis.entities.Status;
+
 public class TaskCreateDTO {
     private String nome;
     private String descricao;
@@ -28,4 +30,6 @@ public class TaskCreateDTO {
     public void setData(String data) {
         this.data = data;
     }
+
+
 }
