@@ -26,7 +26,7 @@ public class TaskService {
 
     }
 
-    public Tasks editarTask(int id, Tasks taskAtualizada) {
+    public Tasks editarTask(Long id, Tasks taskAtualizada) {
         Tasks taskExistente = repository.findById(id).get();
 
 
