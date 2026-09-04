@@ -24,9 +24,13 @@ public class TaskController {
         return service.listarTodos();
     }
 
+    @GetMapping("/{id}")
+    public Tasks buscaPorId(@PathVariable int id){
+        return service.verPorId(id);
+
+    }
 
     @PostMapping
-
     public Tasks criar(@RequestBody TaskCreateDTO taskCreateDTO){
        return service.adicionarTask(taskCreateDTO.getNome(), taskCreateDTO.getDescricao(), taskCreateDTO.getData());
 

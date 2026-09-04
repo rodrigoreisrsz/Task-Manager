@@ -1,6 +1,6 @@
 package com.reis.dto;
 
-import com.reis.entities.Status;
+
 
 public class TaskCreateDTO {
     private String nome;
