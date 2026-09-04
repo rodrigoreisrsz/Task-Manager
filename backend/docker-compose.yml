@@ -21,7 +21,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: taskmanager_api
+    container_name: tasksmanager_api
     depends_on:
       db:
         condition: service_healthy
