@@ -1,8 +1,10 @@
 package com.reis.dto;
 
 public class TaskCreateDTO {
+    @NotBlank
     private String nome;
     private String descricao;
+    @NotBlank
     private String data;
 
     public String getNome() {

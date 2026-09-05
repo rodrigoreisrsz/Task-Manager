@@ -30,12 +30,12 @@ public class TaskController {
     }
 
     @PostMapping
-    public Tasks criar(@RequestBody TaskCreateDTO taskCreateDTO){
+    public Tasks criar(@RequestBody @Valid TaskCreateDTO taskCreateDTO){
        return service.adicionarTask(taskCreateDTO.getNome(), taskCreateDTO.getDescricao(), taskCreateDTO.getData());
 
     }
     @PutMapping("/{id}")
-    public Tasks editar(@PathVariable int id, @RequestBody TaskCreateDTO dto){
+    public Tasks editar(@PathVariable int id, @RequestBody @Valid TaskCreateDTO dto){
         return service.editarTask(id, dto.getNome(), dto.getDescricao(), dto.getData());
     }
     @DeleteMapping("/{id}")
@@ -43,7 +43,7 @@ public class TaskController {
         service.deletarTask(id);
     }
     @PatchMapping("/{id}/status")
-    public Tasks mudarStatus(@PathVariable int id, @RequestBody TaskStatusDTO dto){
+    public Tasks mudarStatus(@PathVariable int id, @RequestBody @Valid TaskStatusDTO dto){
         return service.marcarStatus(id, dto.getStatus());
 
     }
